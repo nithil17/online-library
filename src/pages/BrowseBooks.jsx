@@ -15,7 +15,7 @@ function BrowseBooks(){
         <h1>Browse Books</h1>
         {
             books.map((book)=>(
-                <div key={book.id}>
+                <div className="book-card" key={book.id}>
                     <img src={book.image} width="150" />
                     <h2>{book.title}</h2>
 
