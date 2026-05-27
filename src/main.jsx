@@ -9,6 +9,7 @@ import { Provider } from 'react-redux';
 import { store } from './redux/store.js'
 import { useSelector } from 'react-redux'
 import { books } from './data/books.js'
+import './styles/app.css';
 const books = useSelector((state) => state.books.booksAll);
 
 ReactDOM.createRoot(document.getElementById('root')).render(

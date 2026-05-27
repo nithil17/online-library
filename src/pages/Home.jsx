@@ -11,16 +11,21 @@ function Home(){
         <div>
 
             <Navbar/>
-            <h1>Welcome to Online Library</h1>
+            <h1 className="hero-title">Welcome to Online Library</h1>
 
             <h2>Categories</h2>
 
-            {
-                categories.map((category, index)=>(
-                    <p key={index}>{category}</p>
-                ))
+            <div className="categories">
 
+            {
+            categories.map((category, index) => (
+                <div className="category-card" key={index}>
+                {category}
+                </div>
+            ))
             }
+
+            </div>
         </div>
         
     );
