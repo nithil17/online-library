@@ -19,8 +19,12 @@ function BookDetails() {
         return (
             <div>
                 <Navbar/>
-                <h1>Book Not Found</h1>
-                <Link to="/books">Back to Browse</Link>
+                <main className="details-page">
+                    <section className="not-found-panel">
+                        <h1>Book Not Found</h1>
+                        <Link className="details-link" to="/books">Back to Browse</Link>
+                    </section>
+                </main>
             </div>
         );
     }
@@ -29,17 +33,23 @@ function BookDetails() {
 
     <div>
         <Navbar/>
-        <h1>
-            {selectedBook.title}
-        </h1>
+        <main className="details-page">
+            <article className="details-card">
+                <div className="details-cover">
+                    <img src={selectedBook.image} alt={selectedBook.title} />
+                </div>
 
-        <img src={selectedBook.image} alt={selectedBook.title} width="200" />
+                <div className="details-content">
+                    <p className="book-category">{selectedBook.category}</p>
+                    <h1>{selectedBook.title}</h1>
+                    <p className="details-author">by {selectedBook.author}</p>
+                    <p className="details-rating">{selectedBook.rating}/5 rating</p>
+                    <p className="details-description">{selectedBook.description}</p>
 
-        <p>{selectedBook.author}</p>
-
-        <p>{selectedBook.description}</p>
-
-        <Link to="/books">Back to Browse</Link>
+                    <Link className="details-link" to="/books">Back to Browse</Link>
+                </div>
+            </article>
+        </main>
 
     </div>
 

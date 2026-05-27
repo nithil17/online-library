@@ -21,19 +21,35 @@ function AddBook() {
     const [rating, setRating] = useState("");
 
     const [category, setCategory] = useState("");
+    const [error, setError] = useState("");
 
     const handleSubmit = (e) => {
         e.preventDefault();
 
+        const normalizedRating = Number(rating);
+
+        // Validate before dispatching so the Redux list only receives complete book records.
         if(
-            !title ||
-            !author ||
-            !description ||
-            !image ||
+            !title.trim() ||
+            !author.trim() ||
+            !description.trim() ||
+            !image.trim() ||
             !rating ||
             !category
         ){
-            alert("Fill all fields")
+            setError("Please fill all fields before adding a book.");
+
+            return;
+        }
+
+        if (!image.startsWith("http://") && !image.startsWith("https://")) {
+            setError("Image URL must start with http:// or https://.");
+
+            return;
+        }
+
+        if (Number.isNaN(normalizedRating) || normalizedRating < 1 || normalizedRating > 5) {
+            setError("Rating must be a number between 1 and 5.");
 
             return;
         }
@@ -41,15 +57,15 @@ function AddBook() {
         const newBook = {
             id: Date.now(),
             
-            title,
+            title: title.trim(),
 
-            author,
+            author: author.trim(),
 
-            description,
+            description: description.trim(),
 
-            image,
+            image: image.trim(),
 
-            rating,
+            rating: normalizedRating,
 
             category
         }
@@ -74,6 +90,10 @@ function AddBook() {
 
                 <section className="add-book-layout">
                     <form onSubmit={handleSubmit} className="book-form">
+                        {
+                            error && <p className="form-error">{error}</p>
+                        }
+
                         <div className="form-grid">
                             <label className="form-field">
                                 <span>Title</span>

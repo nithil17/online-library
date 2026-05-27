@@ -13,6 +13,9 @@ function App() {
 
       <Route path='/books' element={<BrowseBooks/>}/>
 
+      {/* Category is dynamic so /books/History and /books/Sci-Fi reuse the same browse page. */}
+      <Route path='/books/:category' element={<BrowseBooks/>}/>
+
       <Route path='/add-book' element={<AddBook/>}/>
 
       <Route path='/book/:id' element={<BookDetails/>}/>

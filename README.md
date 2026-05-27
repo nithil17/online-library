@@ -1,16 +1,52 @@
-# React + Vite
+# Online Library
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+An online library system built with React, Vite, React Router, and Redux Toolkit.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- Home page with categories and popular book cards
+- Browse books page with category filtering and search by title or author
+- Dynamic category routes such as `/books/History`
+- Dynamic book details pages
+- Add book form managed with Redux state
+- 404 page for invalid routes
+- Dark theme by default with a light mode toggle
 
-## React Compiler
+## Tech Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- React
+- Vite
+- React Router DOM
+- Redux Toolkit
+- React Redux
+- CSS
 
-## Expanding the ESLint configuration
+## Run Locally
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Install dependencies:
+
+```bash
+npm install
+```
+
+Start the development server:
+
+```bash
+npm run dev
+```
+
+Build the production version:
+
+```bash
+npm run build
+```
+
+Run lint checks:
+
+```bash
+npm run lint
+```
+
+## Notes
+
+The app uses dummy book data from `src/data/books.js`. Books added through the form are stored in Redux state for the current browser session.

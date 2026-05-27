@@ -10,6 +10,7 @@ const booksSlice = createSlice({
     initialState,
     reducers:{
         addBooks:(state, action)=> {
+            // New books are inserted first to satisfy the assignment redirect requirement.
             state.booksAll.unshift(action.payload);
         }
     }

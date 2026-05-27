@@ -1,7 +1,10 @@
 import Navbar from "../components/Navbar";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 function Home(){
+    const books = useSelector((state) => state.books.booksAll);
+    const popularBooks = books.slice(0, 4);
 
     const categories = [
         {
@@ -38,7 +41,7 @@ function Home(){
 
                         <div className="home-stats">
                             <div>
-                                <strong>11</strong>
+                                <strong>{books.length}</strong>
                                 <span>Books</span>
                             </div>
                             <div>
@@ -115,10 +118,37 @@ function Home(){
                     <div className="categories">
                         {
                             categories.map((category) => (
-                                <Link className="category-card" to="/books" key={category.name}>
+                                <Link className="category-card" to={`/books/${encodeURIComponent(category.name)}`} key={category.name}>
                                     <span>{category.name}</span>
                                     <p>{category.description}</p>
                                 </Link>
+                            ))
+                        }
+                    </div>
+                </section>
+
+                <section className="home-section">
+                    <div className="home-section-header">
+                        <p className="section-label">Popular Books</p>
+                        <h2>Reader picks</h2>
+                    </div>
+
+                    <div className="popular-books-grid">
+                        {
+                            // Popular books come from Redux so newly added books affect this page too.
+                            popularBooks.map((book) => (
+                                <article className="popular-book-card" key={book.id}>
+                                    <img src={book.image} alt={book.title} />
+                                    <div className="popular-book-content">
+                                        <p className="book-category">{book.category}</p>
+                                        <h3>{book.title}</h3>
+                                        <p>by {book.author}</p>
+                                        <p className="book-rating">{book.rating}/5 rating</p>
+                                        <Link className="details-link" to={`/book/${book.id}`}>
+                                            View Details
+                                        </Link>
+                                    </div>
+                                </article>
                             ))
                         }
                     </div>
