@@ -10,23 +10,42 @@ function BrowseBooks(){
     const books = useSelector((state)=>state.books.booksAll);
 
     return(
-        <div className="books-container"> 
-        <Navbar/>
-        <h1>Browse Books</h1>
-        {
-            books.map((book)=>(
-                <div className="book-card" key={book.id}>
-                    <img src={book.image} alt={book.title} width="150" />
-                    <h2>{book.title}</h2>
+        <div>
+            <Navbar/>
 
-                    <p>{book.author}</p>
+            <main className="browse-page">
+                <div className="browse-header">
+                    <div>
+                        <p className="section-label">Library Collection</p>
+                        <h1>Browse Books</h1>
+                    </div>
 
-                    <Link to={`/book/${book.id}`}>View Details</Link>
-
+                    <p className="book-count">{books.length} books</p>
                 </div>
-            ))
-        }
-    </div>
+
+                <div className="books-grid">
+                    {
+                        books.map((book)=>(
+                            <article className="book-card" key={book.id}>
+                                <div className="book-cover">
+                                    <img src={book.image} alt={book.title} />
+                                </div>
+
+                                <div className="book-card-content">
+                                    <p className="book-category">{book.category}</p>
+                                    <h2>{book.title}</h2>
+                                    <p className="book-author">by {book.author}</p>
+
+                                    <Link className="details-link" to={`/book/${book.id}`}>
+                                        View Details
+                                    </Link>
+                                </div>
+                            </article>
+                        ))
+                    }
+                </div>
+            </main>
+        </div>
 
     );
     
