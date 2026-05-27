@@ -10,7 +10,7 @@ function BrowseBooks(){
     const books = useSelector((state)=>state.books.booksAll);
 
     return(
-        <div>
+        <div className="books-container"> 
         <Navbar/>
         <h1>Browse Books</h1>
         {
