@@ -65,7 +65,7 @@ function AddBook() {
 
       <h1>Add Book</h1>
 
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className="book-form">
 
         <input
           type="text"
