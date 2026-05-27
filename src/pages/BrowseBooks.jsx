@@ -16,13 +16,12 @@ function BrowseBooks(){
         {
             books.map((book)=>(
                 <div className="book-card" key={book.id}>
-                    <img src={book.image} width="150" />
+                    <img src={book.image} alt={book.title} width="150" />
                     <h2>{book.title}</h2>
 
                     <p>{book.author}</p>
 
-                    <Link to={`/book/${book.id}`}>
-                    </Link>
+                    <Link to={`/book/${book.id}`}>View Details</Link>
 
                 </div>
             ))
@@ -33,3 +32,4 @@ function BrowseBooks(){
     
 }
 
+export default BrowseBooks;

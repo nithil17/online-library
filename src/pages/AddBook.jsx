@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { addBooks } from "../redux/booksSlice";
+import Navbar from "../components/Navbar";
 
 function AddBook() {
 
@@ -9,7 +10,7 @@ function AddBook() {
 
     const navigate = useNavigate();
 
-    const [title, setTitle] = useState();
+    const [title, setTitle] = useState("");
 
     const [author, setAuthor] = useState("");
 

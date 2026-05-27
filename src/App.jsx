@@ -1,14 +1,12 @@
-import { useState } from 'react'
 import { Route, Routes } from 'react-router-dom'
 
-import './App.css'
 import Home from './pages/Home'
 import NotFound from './pages/NotFound'
 import AddBook from './pages/AddBook'
+import BrowseBooks from './pages/BrowseBooks'
+import BookDetails from './pages/BookDetails'
 
 function App() {
-  
-
   return (
     <Routes>
       <Route path='/' element={<Home/>}/>

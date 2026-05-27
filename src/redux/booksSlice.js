@@ -1,6 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
 import {  booksData } from "../data/books";
-import { act } from "react";
 
 const initialState = {
     booksAll: booksData

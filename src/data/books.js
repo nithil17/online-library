@@ -11,9 +11,9 @@ export const booksData = [
     {
         id : 2,
         title:"Startups of Bharat",
-        category:"Histroy",
+        category:"History",
         author:"Aditya Arora",
-        description: "Stories of India’s Million-Dollar Founders Under Thirty",
+        description: "Stories of India's Million-Dollar Founders Under Thirty",
         image:"https://m.media-amazon.com/images/I/71NKuCOfksL._AC_UY218_.jpg"
     },
     {
@@ -76,7 +76,7 @@ export const booksData = [
         id : 10,
         title:"Ikigai",
         category:"Self Help", 
-        author:"Héctor García",
+        author:"Hector Garcia",
         description: "The Japanese secret to a long and happy life",
         image:"https://images-eu.ssl-images-amazon.com/images/I/81l3rZK4lnL._AC_UL165_SR165,165_.jpg"
     },
